@@ -1,0 +1,22 @@
+{
+  "name": "social",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tumino Stefano",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jquery": "^3.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongo": "^0.1.0",
+    "popper.js": "^1.16.1",
+    "vue": "^3.2.45"
+  }
+}
