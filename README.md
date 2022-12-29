@@ -10,5 +10,5 @@
 `docker-compose up`
 
 ### Client:
-`npm install`
+`npm install`  
 `npm run serve`
