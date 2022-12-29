@@ -1,6 +1,7 @@
 # ProgrammazioneWeb
 
 ## Setup:
+Per il setup scrivere i seguenti comandi nelle rispettive cartelle
 
 ### Server:
 #### app
