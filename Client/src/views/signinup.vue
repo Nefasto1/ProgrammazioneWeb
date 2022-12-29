@@ -15,7 +15,8 @@
                     <div class="col">
                         <div class="input-group mb-3" :class="{errorInput: errpass}">
                             <span class="input-group-text justify-content-center fs-5" id="basic-addon1">Password</span>
-                            <input type="password" class="form-control fs-5" @keyup.enter="signin" v-model="password" placeholder="Password">
+                            <input :type="visible" class="form-control fs-5" @keyup.enter="signin" v-model="password" placeholder="Password">
+                            <input type="button" class="btn" @click="visibility" :value=button />
                         </div>
                     </div>
                 </div>
@@ -40,7 +41,8 @@
                         <div :class="{errorInput: errpass}">
                             <span class="input-group-text justify-content-center fs-5" id="alternativelabel">Password</span>
                             <div class="input-group">
-                                <input type="text" class="form-control fs-5" id="alternativeinput" @keyup.enter="signin" v-model="password" placeholder="Password">
+                                <input :type=visible class="form-control fs-5" id="alternativeinput" @keyup.enter="signin" v-model="password" placeholder="Password">
+                                <input type="button" class="btn" @click="visibility" :value=button />
                             </div>
                         </div>
                     </div>
@@ -80,7 +82,8 @@
                     <div :class="{errorInput: errpass}">
                         <span class="input-group-text justify-content-center fs-5" id="alternativelabel">Password</span>
                         <div class="input-group" :class="{errorInput: errpass}">
-                            <input type="password" class="form-control fs-5" id="alternativeinput" @keyup.enter="signup" v-model="password" placeholder="Password (8-16 caratteri)">
+                            <input :type="visible" class="form-control fs-5" @keyup.enter="signin" v-model="password" placeholder="Password (8-16 caratteri)">
+                            <input type="button" class="btn" @click="visibility" :value=button />
                         </div>
                     </div>
                 </div>
@@ -88,7 +91,8 @@
                     <div :class="{errorInput: errredo}">
                         <span class="input-group-text justify-content-center fs-5" id="alternativelabel">Ripeti Password</span>
                         <div class="input-group" :class="{errorInput: errredo}">
-                            <input type="password" class="form-control fs-5" id="alternativeinput" @keyup.enter="signup" v-model="redo" placeholder="Ripeti Password">
+                            <input :type="visible" class="form-control fs-5" @keyup.enter="signin" v-model="redo" placeholder="Ripeti Password">
+                            <input type="button" class="btn" @click="visibility" :value=button />
                         </div>
                     </div>
                 </div>
@@ -111,19 +115,19 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="row mt-3">
-                    <div class="col">
-                        <div :class="{errorInput: errbio}">
-                            <span class="input-group-text justify-content-center fs-5" id="alternativelabel">Inserisci una tua descrizione:</span>
-                            <div class="input-group">
-                                <textarea class="form-control fs-5" id="alternativeinput" @keyup.enter="signup" v-model="bio" placeholder="Inserisci una tua descrizione" rows="2"></textarea>
-                            </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col">
+                    <div :class="{errorInput: errbio}">
+                        <span class="input-group-text justify-content-center fs-5" id="alternativelabel">Inserisci una tua descrizione:</span>
+                        <div class="input-group">
+                            <textarea class="form-control fs-5" id="alternativeinput" @keyup.enter="signup" v-model="bio" placeholder="Inserisci una tua descrizione" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
             </div>
-                
+            
             <div class="row mt-3">
                 <div class="col">
                     <input type="button" class="btn fs-5" @click="signup" value="Sign Up"/>
@@ -144,7 +148,7 @@ import request from '@/utils/requests';
 export default {
     name: 'SigninupItem',    
     data() {
-        return {username: "", password: "", redo:"", nome:"", cognome:"", bio:"", status: "", login:true,
+        return {username: "", password: "", redo:"", nome:"", cognome:"", bio:"", status: "", login:true, switch:true, visible:"password", button:"show",
                 erruser:false, errpass:false, errredo:false, errnome:false, errcogn:false, errbio:false};
     }, 
     methods: {
@@ -230,6 +234,11 @@ export default {
         change: function(){
             this.reset();
             this.login = !this.login;
+        },
+        visibility: function(){
+            this.switch = !this.switch;
+            this.button = this.switch ? 'show' : 'hide';
+            this.visible = this.switch ? 'password' : 'text';
         },
         reset: function(){
             this.status = "";
