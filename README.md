@@ -1,14 +1,14 @@
 # ProgrammazioneWeb
 
-##Setup:
+## Setup:
 
-###Server:
-####app
+### Server:
+#### app
 `npm install express`
 
-####Server
+#### Server
 `docker-compose up`
 
-###Client:
+### Client:
 `npm install`
 `npm run serve`
