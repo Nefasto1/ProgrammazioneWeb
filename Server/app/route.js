@@ -144,6 +144,8 @@ router.get('/social/users/:id', async (req, res) => {
                     const followed = await mongo.collection('followers').findOne({"followed": parseInt(req.params.id), "follower": decoded.id});
                     user.followed = followed ? true : false;
                     
+                    delete user.password;
+
                     res.status(201).json(user)
                 }
             });
@@ -155,6 +157,8 @@ router.get('/social/users/:id', async (req, res) => {
 
             // Controllo se l'utente richiedente segue l'utente ricercato            
             user.followed = false;
+
+            delete user.password;
                     
             res.status(201).json(user)
         }
@@ -189,6 +193,10 @@ router.get('/social/search', async (req, res) => {
             }
         }).toArray();
         
+        for(let user of users) {
+            delete user.password;
+        }
+
         res.status(201).send(users);
     }
 });
@@ -204,6 +212,8 @@ router.get('/social/whoami', async (req, res) => {
         decoded.followers = followers
         decoded.nfollowers = followers.length
         
+        delete decoded.password;
+
         res.status(200).json(decoded);
     });
 });
@@ -424,6 +434,11 @@ router.get("/social/followers/:id", async (req, res) => {
     if (exist){
         // Controllo la lista dei follower
         const followers = await mongo.collection('followers').find({"followed": parseInt(req.params.id)}).toArray();    
+        
+        for(let user of followers){
+            delete user.password;
+        }
+        
         res.status(201).json(followers);
     } else {
         res.status(404).send("ERROR 404: Utente non trovato");

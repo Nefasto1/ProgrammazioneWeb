@@ -1,14 +1,17 @@
 <template>
     <div class="container text-white">
+        <h1 class="h1">Follower di <a :href="'http://localhost:8080/#/users/' + $route.params.id">@{{ username }} </a></h1>
         <p v-if="status"> {{ status }} </p>
         <p v-if="!status && followers.length === 0">Nessun follower</p>
         <div v-if="!status && followers.length !== 0">
             <div v-for="user in followers" v-bind:key="user.id" id="follower">
                 <div class="row justify-content-between">
                     <div class="col-auto">
-                        <p class="fs-2 fw-bold">
-                            {{ user.nome }} {{ user.cognome }} <span v-if="user.self">(tu)</span>
-                        </p>
+                        <a :href="'http://localhost:8080/#/users/' + user.id">
+                            <p class="fs-2 fw-bold">
+                                {{ user.nome }} {{ user.cognome }} <span v-if="user.self">(tu)</span>
+                            </p>
+                        </a>
                     </div>
                     <div class="col-auto">
                         <a :href="'http://localhost:8080/#/followers/' + user.id" class="text-decoration-none">{{ user.nfollowers }} <small>follower</small></a>
@@ -36,7 +39,7 @@ import request from '@/utils/requests';
 
 export default {
     name: "followersItem",
-    data() {return {status:false, followers:[]}},
+    data() {return {status:false, username: "", followers:[]}},
     watch: {
         '$route.params.id': {
             handler() {
@@ -62,6 +65,10 @@ export default {
                 },
                 (err) => this.status = err.response.data
             );
+            request.getRequest(`http://localhost:3000/api/social/users/${this.$route.params.id}`, {},
+                (res) => this.username = res.data.username,
+                null
+            );
         },
         follow(id) {
             request.postRequest(`http://localhost:3000/api/social/followers/${id}`, {},
@@ -84,5 +91,10 @@ export default {
     padding-bottom: 10px;
     padding-top: 10px;
     border-top: 2px solid #DDFFF7;
+}
+
+a {
+    color: #E980FC;
+    text-decoration: none;
 }
 </style>

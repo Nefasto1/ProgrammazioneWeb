@@ -203,10 +203,10 @@ export default {
                         this.erruser = true;
                     }
                     if(this.nome.match(/[|\\/~^:,;?!&%$@*+]/)){
-                        this.erruser = true;
+                        this.errnome = true;
                     }
                     if(this.cognome.match(/[|\\/~^:,;?!&%$@*+]/)){
-                        this.erruser = true;
+                        this.errcogn = true;
                     }
                 }
             } else {
