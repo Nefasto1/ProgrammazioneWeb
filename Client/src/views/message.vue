@@ -11,13 +11,13 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-between" id="name">
+                <div class="row justify-content-between name">
                     <div class="col-auto">
                         <a :href="'http://localhost:8080/#/users/' + message.userID"><small class="text-muted">{{ message.nome }} {{ message.cognome }}</small></a>
                     </div>
                     <div class="col-auto" v-if="!user.self">    
-                        <a v-if="!message.followed" @click="follow()"><div class="container" id="follow">follow</div></a>
-                        <a v-if="message.followed" @click="unfollow()"><div class="container" id="unfollow">unfollow</div></a>
+                        <a v-if="!message.followed" @click="follow()"><div class="container follow">follow</div></a>
+                        <a v-if="message.followed" @click="unfollow()"><div class="container unfollow">unfollow</div></a>
                     </div>
                 </div>
 
@@ -27,8 +27,8 @@
                     </div>
                 </div>
                 
-                <a v-if="!message.like" @click.stop="like(message.msgID)"><div class="container" id="like">like {{ message.nlike }}</div></a>
-                <a v-if="message.like" @click.stop="unlike(message.msgID)"><div class="container" id="unlike">unlike {{ message.nlike }}</div></a>
+                <a v-if="!message.like" @click.stop="like(message.msgID)"><div class="container like">like {{ message.nlike }}</div></a>
+                <a v-if="message.like" @click.stop="unlike(message.msgID)"><div class="container unlike">unlike {{ message.nlike }}</div></a>
             </div>
         </div>
     </div>

@@ -28,9 +28,9 @@
                 <div class="row">
                     <div class="col">
                         <div :class="{errorInput: erruser}">
-                            <span class="input-group-text justify-content-center fs-5" id="alternativelabel">@Username</span>
+                            <span class="input-group-text justify-content-center fs-5 alternativelabel">@Username</span>
                             <div class="input-group">
-                                <input type="text" class="form-control fs-5" id="alternativeinput" @keyup.enter="signin" v-model="username" placeholder="@Username">
+                                <input type="text" class="form-control fs-5 alternativeinput" @keyup.enter="signin" v-model="username" placeholder="@Username">
                             </div>
                         </div>
                     </div>
@@ -39,9 +39,9 @@
                 <div class="row mt-3">
                     <div class="col">
                         <div :class="{errorInput: errpass}">
-                            <span class="input-group-text justify-content-center fs-5" id="alternativelabel">Password</span>
+                            <span class="input-group-text justify-content-center fs-5 alternativelabel">Password</span>
                             <div class="input-group">
-                                <input :type=visible class="form-control fs-5" id="alternativeinput" @keyup.enter="signin" v-model="password" placeholder="Password">
+                                <input :type=visible class="form-control fs-5 alternativeinput" @keyup.enter="signin" v-model="password" placeholder="Password">
                                 <input type="button" class="btn" @click="visibility" :value=button />
                             </div>
                         </div>
@@ -69,9 +69,9 @@
             <div class="row">
                 <div class="col">
                     <div :class="{errorInput: erruser}">
-                        <span class="input-group-text justify-content-center fs-5" id="alternativelabel">@Username</span>
+                        <span class="input-group-text justify-content-center fs-5 alternativelabel">@Username</span>
                         <div class="input-group">
-                            <input type="text" class="form-control fs-5" id="alternativeinput" @keyup.enter="signin" v-model="username" placeholder="@Username">
+                            <input type="text" class="form-control fs-5 alternativeinput" @keyup.enter="signin" v-model="username" placeholder="@Username">
                         </div>
                     </div>
                 </div>
@@ -80,18 +80,18 @@
             <div class="row mt-3">
                 <div class="col">
                     <div :class="{errorInput: errpass}">
-                        <span class="input-group-text justify-content-center fs-5" id="alternativelabel">Password</span>
-                        <div class="input-group" :class="{errorInput: errpass}">
-                            <input :type="visible" class="form-control fs-5" @keyup.enter="signin" v-model="password" placeholder="Password (8-16 caratteri)">
+                        <span class="input-group-text justify-content-center fs-5 alternativelabel">Password</span>
+                        <div class="input-group">
+                            <input :type="visible" class="form-control fs-5 alternativeinput" @keyup.enter="signin" v-model="password" placeholder="Password (8-16 caratteri)">
                             <input type="button" class="btn" @click="visibility" :value=button />
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div :class="{errorInput: errredo}">
-                        <span class="input-group-text justify-content-center fs-5" id="alternativelabel">Ripeti Password</span>
-                        <div class="input-group" :class="{errorInput: errredo}">
-                            <input :type="visible" class="form-control fs-5" @keyup.enter="signin" v-model="redo" placeholder="Ripeti Password">
+                        <span class="input-group-text justify-content-center fs-5 alternativelabel">Ripeti Password</span>
+                        <div class="input-group">
+                            <input :type="visible" class="form-control fs-5 alternativeinput" @keyup.enter="signin" v-model="redo" placeholder="Ripeti Password">
                             <input type="button" class="btn" @click="visibility" :value=button />
                         </div>
                     </div>
@@ -101,17 +101,17 @@
             <div class="row mt-3">
                 <div class="col">
                     <div :class="{errorInput: errnome}">
-                        <span class="input-group-text justify-content-center fs-5" id="alternativelabel">Nome</span>
+                        <span class="input-group-text justify-content-center fs-5 alternativelabel">Nome</span>
                         <div class="input-group">
-                            <input type="text" class="form-control fs-5" id="alternativeinput" @keyup.enter="signup" v-model="nome" placeholder="Nome">
+                            <input type="text" class="form-control fs-5 alternativeinput" @keyup.enter="signup" v-model="nome" placeholder="Nome">
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div :class="{errorInput: errcogn}">
-                        <span class="input-group-text justify-content-center fs-5" id="alternativelabel">Cognome</span>
+                        <span class="input-group-text justify-content-center fs-5 alternativelabel">Cognome</span>
                         <div class="input-group">
-                            <input type="text" class="form-control fs-5" id="alternativeinput" @keyup.enter="signup" v-model="cognome" placeholder="Cognome">
+                            <input type="text" class="form-control fs-5 alternativeinput" @keyup.enter="signup" v-model="cognome" placeholder="Cognome">
                         </div>
                     </div>
                 </div>
@@ -120,9 +120,9 @@
             <div class="row mt-3">
                 <div class="col">
                     <div :class="{errorInput: errbio}">
-                        <span class="input-group-text justify-content-center fs-5" id="alternativelabel">Inserisci una tua descrizione:</span>
+                        <span class="input-group-text justify-content-center fs-5 alternativelabel">Inserisci una tua descrizione:</span>
                         <div class="input-group">
-                            <textarea class="form-control fs-5" id="alternativeinput" @keyup.enter="signup" v-model="bio" placeholder="Inserisci una tua descrizione" rows="2"></textarea>
+                            <textarea class="form-control fs-5 alternativeinput" @keyup.enter="signup" v-model="bio" placeholder="Inserisci una tua descrizione" rows="2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -270,20 +270,20 @@ export default {
     color: #DDFFF7;
 }
 
-#alternativelabel {
+span[class~=alternativelabel] {
     border-radius: .375rem .375rem 0px 0px;
 }
 
-#alternativeinput {
+input[class~=alternativeinput], textarea[class~=alternativeinput] {
     border-radius:  0px 0px .375rem .375rem;
 }
 
-#alternativeinput, input {
+input[class~=alternativeinput], textarea[class~=alternativeinput] , input {
     background: linear-gradient(21deg, #190031, #5A189A);
     color: #DDFFF7;
 }
 
-#alternativeinput:focus, input:focus, #alternativeinput:hover, input:hover {
+input[class~=alternativeinput]:focus, textarea[class~=alternativeinput]:focus, input:focus, input:hover {
     background: linear-gradient(21deg, #E4B7E5, #E980FC);
     color: #292b2c;
 }

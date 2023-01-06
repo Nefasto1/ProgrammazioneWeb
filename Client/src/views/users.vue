@@ -14,15 +14,15 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-between" id="user">
+                <div class="row justify-content-between user">
                     <div class="col-auto">
                         <small class="text-muted">
                             @{{ user.username }}
                         </small>
                     </div>
                     <div class="col-auto">    
-                        <a v-if="!user.followed" @click="follow()"><div class="container" id="follow">follow</div></a>
-                        <a v-if="user.followed" @click="unfollow()"><div class="container" id="unfollow">unfollow</div></a>
+                        <a v-if="!user.followed" @click="follow()"><div class="container follow">follow</div></a>
+                        <a v-if="user.followed" @click="unfollow()"><div class="container unfollow">unfollow</div></a>
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
                 </div>
             </div>
             
-            <div id="messages" class="container">
+            <div class="container messages">
                 <a @click.stop="redirect(message.msgID, message.userID)" v-for="message in messages" :key="message.msg">
                     <div class="container p-3">
                         <div class="row justify-content-between">
@@ -47,20 +47,20 @@
                             </div>
                         </div>
 
-                        <div class="row justify-content-start" id="name">
+                        <div class="row justify-content-start name">
                             <div class="col-auto">
                                 <small class="text-muted">{{ message.nome }} {{ message.cognome }}</small>
                             </div>
                         </div>
 
-                        <div class="row justify-content-start pt-2 ps-4" id="message">
+                        <div class="row justify-content-start pt-2 ps-4 message">
                             <div class="col-auto">
                                 <p>{{ message.msg }}</p>
                             </div>
                         </div>
                         
-                        <a v-if="!message.like" @click.stop="like(message.msgID)"><div class="container" id="like">like {{ message.nlike }}</div></a>
-                        <a v-if="message.like" @click.stop="unlike(message.msgID)"><div class="container" id="unlike">unlike {{ message.nlike }}</div></a>
+                        <a v-if="!message.like" @click.stop="like(message.msgID)"><div class="container like">like {{ message.nlike }}</div></a>
+                        <a v-if="message.like" @click.stop="unlike(message.msgID)"><div class="container unlike">unlike {{ message.nlike }}</div></a>
                     </div>
                 </a>
             </div>

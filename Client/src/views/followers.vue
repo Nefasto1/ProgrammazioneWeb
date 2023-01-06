@@ -4,7 +4,7 @@
         <p v-if="status"> {{ status }} </p>
         <p v-if="!status && followers.length === 0">Nessun follower</p>
         <div v-if="!status && followers.length !== 0">
-            <div v-for="user in followers" v-bind:key="user.id" id="follower">
+            <div v-for="user in followers" v-bind:key="user.id" class="follower">
                 <div class="row justify-content-between">
                     <div class="col-auto">
                         <a :href="'http://localhost:8080/#/users/' + user.id">
@@ -18,15 +18,15 @@
                     </div>
                 </div>
             
-                <div class="row justify-content-between" id="user">
+                <div class="row justify-content-between user">
                     <div class="col-auto">
                         <small class="text-muted">
                             @{{ user.username }}
                         </small>
                     </div>
                     <div class="col-auto" v-if="!user.self">    
-                        <a v-if="!user.followed" @click="follow(user.id)"><div class="container" id="follow">follow</div></a>
-                        <a v-if="user.followed" @click="unfollow(user.id)"><div class="container" id="unfollow">unfollow</div></a>
+                        <a v-if="!user.followed" @click="follow(user.id)"><div class="container follow">follow</div></a>
+                        <a v-if="user.followed" @click="unfollow(user.id)"><div class="container unfollow">unfollow</div></a>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@ export default {
 </script>
 
 <style scoped>
-#follower {
+.follower {
     padding-bottom: 10px;
     padding-top: 10px;
     border-top: 2px solid #DDFFF7;

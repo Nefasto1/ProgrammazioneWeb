@@ -145,37 +145,38 @@ h1 {
   margin-top: -8px;
 }
 
-#user {
+div[class~=user] {
   margin-top: -25px;
 }
 
-#name {
+div[class~=name] {
   margin-top: -7px;
 }
 
-#messages {
+div[class~=messages] {
   border-top: 3px solid #DDFFF7;
 }
 
-#like:hover, #unlike {
-  background: linear-gradient(21deg, #E4B7E5, #E980FC);
-  color: #292b2c;
+div[class~=like]:hover, div[class~=unlike] {
+  background: linear-gradient(21deg, #E4B7E5, #E980FC) !important;
+  color: #292b2c !important;
 }
 
-#unlike:hover {
-  background: linear-gradient(21deg, #9d0208, #6a040f);
+div[class~=unlike]:hover {
+  background: linear-gradient(21deg, #9d0208, #6a040f) !important;
+  color: #fff !important;
 }
 
-#follow {
-  border: 1px solid #00B4D8;
+div[class~=follow] {
+  border: 1px solid #00B4D8 !important;
 }
 
-#follow:hover, #unfollow {
-  background: linear-gradient(21deg, #00B4D8, #0077B6);
+div[class~=follow]:hover, div[class~=unfollow] {
+  background: linear-gradient(21deg, #00B4D8, #0077B6) !important;
 }
 
-#unfollow:hover {
-    background: linear-gradient(21deg, #023E8A, #03045E);
+div[class~=unfollow]:hover {
+  background: linear-gradient(21deg, #023E8A, #03045E) !important;
 }
 
 .error {

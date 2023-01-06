@@ -19,7 +19,7 @@ export default {
     data() {return {search:""}},
     computed: {
         users() {
-            if (this.search != "" && !this.search.match(/[|\\/~^:,;?!&%$@*+]/)){
+            if (this.search != "" && !this.search.match(/[|\\/~^:,;?!&%$@*+"']/)){
                 request.getRequest(`http://localhost:3000/api/social/search?q=${this.search}`, {},
                     (res) => this.res = res.data.slice(0, 5),
                     null
